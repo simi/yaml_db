@@ -3,7 +3,6 @@ require 'yaml'
 require 'active_record'
 require 'serialization_helper'
 require 'active_support/core_ext/kernel/reporting'
-require 'rails/railtie'
 
 module YamlDb
   module Helper
@@ -63,13 +62,6 @@ module YamlDb
             load_table(table_name, ydoc[table_name], truncate)
           end
         end
-    end
-  end
-
-  class Railtie < Rails::Railtie
-    rake_tasks do
-      load File.expand_path('../tasks/yaml_db_tasks.rake',
-__FILE__)
     end
   end
 
